@@ -7,6 +7,7 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "administradores")
 public class Administrador {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")

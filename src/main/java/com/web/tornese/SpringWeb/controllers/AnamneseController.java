@@ -48,7 +48,7 @@ public class AnamneseController {
 
         return "/anamneses/editar";
     }
-
+    
     @PostMapping("/anamneses/{id}/atualizar")
     public String atualizar(@PathVariable int id, Anamnese anamnese) {
         // if(!repo.exist(id)){

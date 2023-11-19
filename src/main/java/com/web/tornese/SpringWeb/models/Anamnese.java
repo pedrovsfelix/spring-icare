@@ -7,11 +7,49 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "anamneses")
 public class Anamnese {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
+    @Column(name = "paciente", length = 255, nullable = false)
+    private String paciente;
+
+    @Column(name = "idade", length = 100, nullable = false)
+    private int idade;
+
+    @Column(name = "sexo", length = 100, nullable = false)
+    private String sexo;
+
+    @Column(name = "condicao", length = 100, nullable = false)
+    private String condicao;
+
+    @Column(name = "cirurgia", length = 100, nullable = false)
+    private String cirurgia;
+
+    @Column(name = "medicamentos", length = 100, nullable = false)
+    private String medicamentos;
+
+    @Type(type = "text")
+    @Column(name = "detalhes", length = 255, nullable = false)
+    private String detalhes;
+
+    @Column(name = "dores", length = 100, nullable = false)
+    private String dores;
+
+    @Column(name = "inchaco", length = 100, nullable = false)
+    private String inchaco;
+
+    @Column(name = "febre", length = 100, nullable = false)
+    private String febre;
+
+    @Column(name = "atividade", length = 100, nullable = false)
+    private String atividade;
+
+    @Type(type = "text")
+    @Column(name = "informacoes", length = 255)
+    private String informacoes;
 
     public int getId() {
         return id;
@@ -21,9 +59,6 @@ public class Anamnese {
         this.id = id;
     }
 
-    @Column(name = "paciente", length = 255, nullable = false)
-    private String paciente;
-
     public String getPaciente() {
         return paciente;
     }
@@ -31,9 +66,6 @@ public class Anamnese {
     public void setPaciente(String paciente) {
         this.paciente = paciente;
     }
-
-    @Column(name = "idade", length = 100, nullable = false)
-    private int idade;
 
     public int getIdade() {
         return idade;
@@ -43,9 +75,6 @@ public class Anamnese {
         this.idade = idade;
     }
 
-    @Column(name = "sexo", length = 100, nullable = false)
-    private String sexo;
-
     public String getSexo() {
         return sexo;
     }
@@ -53,9 +82,6 @@ public class Anamnese {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
-    @Column(name = "condicao", length = 100, nullable = false)
-    private String condicao;
 
     public String getCondicao() {
         return condicao;
@@ -65,9 +91,6 @@ public class Anamnese {
         this.condicao = condicao;
     }
 
-    @Column(name = "cirurgia", length = 100, nullable = false)
-    private String cirurgia;
-
     public String getCirurgia() {
         return cirurgia;
     }
@@ -75,9 +98,6 @@ public class Anamnese {
     public void setCirurgia(String cirurgia) {
         this.cirurgia = cirurgia;
     }
-
-    @Column(name = "medicamentos", length = 100, nullable = false)
-    private String medicamentos;
 
     public String getMedicamentos() {
         return medicamentos;
@@ -87,9 +107,6 @@ public class Anamnese {
         this.medicamentos = medicamentos;
     }
 
-    @Column(name = "detalhes", length = 255, nullable = false)
-    private String detalhes;
-
     public String getDetalhes() {
         return detalhes;
     }
@@ -97,9 +114,6 @@ public class Anamnese {
     public void setDetalhes(String detalhes) {
         this.detalhes = detalhes;
     }
-
-    @Column(name = "dores", length = 100, nullable = false)
-    private String dores;
 
     public String getDores() {
         return dores;
@@ -109,9 +123,6 @@ public class Anamnese {
         this.dores = dores;
     }
 
-    @Column(name = "inchaco", length = 100, nullable = false)
-    private String inchaco;
-
     public String getInchaco() {
         return inchaco;
     }
@@ -119,9 +130,6 @@ public class Anamnese {
     public void setInchaco(String inchaco) {
         this.inchaco = inchaco;
     }
-
-    @Column(name = "febre", length = 100, nullable = false)
-    private String febre;
 
     public String getFebre() {
         return febre;
@@ -131,9 +139,6 @@ public class Anamnese {
         this.febre = febre;
     }
 
-    @Column(name = "atividade", length = 100, nullable = false)
-    private String atividade;
-
     public String getAtividade() {
         return atividade;
     }
@@ -141,10 +146,6 @@ public class Anamnese {
     public void setAtividade(String atividade) {
         this.atividade = atividade;
     }
-
-    @Type(type = "text")
-    @Column(name = "informacoes", length = 255)
-    private String informacoes;
 
     public String getInformacoes() {
         return informacoes;
