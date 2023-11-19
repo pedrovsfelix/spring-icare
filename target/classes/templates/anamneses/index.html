@@ -1,0 +1,68 @@
+<div th:replace="compartilhado/top"></div>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Formulário Anamnese</h1>
+        <p class="mb-4">
+            Aqui irá listar os formulários do sistema
+        </p>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <a href="/anamneses/novo" class="btn btn-primary" style="margin-right: 20px;">Novo</a>
+                <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Lista de Anamnese</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>Sexo</th>
+                                <th>Condição Crônica</th>
+                                <th>Cirurgias</th>
+                                <th>Medicamentos</th>
+                                <th>Observação</th>
+                                <th>Dores</th>
+                                <th>Inchaço</th>
+                                <th>Febre</th>
+                                <th>Atividade Física Regular</th>
+                                <th>Informações Relevantes</th>
+                                <th>Id Médico</th>
+                                <!-- <th>Nome Médico</th>
+                                <th>Especialidade</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="anamnese : ${anamneses}">
+                                <td th:text="${anamnese.id}"></td>
+                                <td th:text="${anamnese.paciente}"></td>
+                                <td th:text="${anamnese.idade}"></td>
+                                <td th:text="${anamnese.sexo}"></td>
+                                <td th:text="${anamnese.condicao}"></td>
+                                <td th:text="${anamnese.cirurgia}"></td>
+                                <td th:text="${anamnese.medicamentos}"></td>
+                                <td th:text="${anamnese.detalhes}"></td>
+                                <td th:text="${anamnese.dores}"></td>
+                                <td th:text="${anamnese.inchaco}"></td>
+                                <td th:text="${anamnese.febre}"></td>
+                                <td th:text="${anamnese.atividade}"></td>
+                                <td th:text="${anamnese.informacoes}"></td>
+                                <!-- <td th:text="${administrador.id}"></td>
+                                <td th:text="${administrador.nome}"></td> -->
+                                <td><a th:href="@{'/anamneses/' + ${anamnese.id}}" class="btn btn-warning">Alterar</td>
+                                <td><a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/anamneses/{id}(id=${anamnese.id})} + '/excluir\' } '" class="btn btn-danger">Excluir</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+<div th:replace="compartilhado/baixo"></div>
