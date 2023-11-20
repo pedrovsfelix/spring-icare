@@ -26,6 +26,10 @@ public class Administrador {
   @Type(type = "text")
   private String observacao;
 
+  @OneToMany
+  @JoinColumn(name = "anamneses_id")
+  private List<Anamnese> anamneses;
+
   public String getObservacao() {
     return observacao;
   }

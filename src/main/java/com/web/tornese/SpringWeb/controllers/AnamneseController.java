@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.web.tornese.SpringWeb.models.Anamnese;
+import com.web.tornese.SpringWeb.repositorio.AdministradoresRepo;
 import com.web.tornese.SpringWeb.repositorio.AnamneseRepo;
 
 @Controller
@@ -18,6 +19,9 @@ public class AnamneseController {
 
     @Autowired
     private AnamneseRepo anarepo;
+
+    @Autowired
+    private AdministradoresRepo repo;
 
     @GetMapping("/anamneses")
     public String index(Model model) {
@@ -51,7 +55,6 @@ public class AnamneseController {
     
     @PostMapping("/anamneses/{id}/atualizar")
     public String atualizar(@PathVariable int id, Anamnese anamnese) {
-        // if(!repo.exist(id)){
         if (!anarepo.existsById(id)) {
             return "redirect:/anamneses";
         }
