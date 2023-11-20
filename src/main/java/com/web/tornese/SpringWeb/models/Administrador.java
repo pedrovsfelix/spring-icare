@@ -1,5 +1,7 @@
 package com.web.tornese.SpringWeb.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
@@ -25,10 +27,9 @@ public class Administrador {
   @Column(name = "observacao")
   @Type(type = "text")
   private String observacao;
-
-  @OneToMany
-  @JoinColumn(name = "anamneses_id")
-  private List<Anamnese> anamneses;
+  
+  @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL)
+  List<Anamnese> anamneses;
 
   public String getObservacao() {
     return observacao;

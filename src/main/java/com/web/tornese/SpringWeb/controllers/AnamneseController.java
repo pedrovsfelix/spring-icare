@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.web.tornese.SpringWeb.models.Anamnese;
-import com.web.tornese.SpringWeb.repositorio.AdministradoresRepo;
 import com.web.tornese.SpringWeb.repositorio.AnamneseRepo;
 
 @Controller
@@ -19,9 +18,6 @@ public class AnamneseController {
 
     @Autowired
     private AnamneseRepo anarepo;
-
-    @Autowired
-    private AdministradoresRepo repo;
 
     @GetMapping("/anamneses")
     public String index(Model model) {

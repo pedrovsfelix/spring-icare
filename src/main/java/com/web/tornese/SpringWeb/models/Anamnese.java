@@ -51,6 +51,10 @@ public class Anamnese {
     @Column(name = "informacoes", length = 255)
     private String informacoes;
 
+    @ManyToOne
+    @JoinColumn(name = "administrador_id")
+    private Administrador administrador;
+
     public int getId() {
         return id;
     }
