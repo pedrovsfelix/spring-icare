@@ -1,4 +1,4 @@
-package com.web.tornese.SpringWeb.models;
+package com.web.icare.SpringWeb.models;
 
 import java.util.List;
 

@@ -3,42 +3,106 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Edição de Administrador</h1>
+        <h1 class="h3 mb-2 text-gray-800">Novo Paciente</h1>
         <p class="mb-4">
-            Aqui iremos editar o administrador
+            Anamnese do paciênte
         </p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4" style="padding: 30px;">
             <form method="POST" th:action="@{'/anamneses/' + ${anamnese.id} + '/atualizar'}">
                 <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" th:value="${anamnese?.nome}" required id="nome" name="nome" placeholder="Digite o seu nome">
+                    <label for="paciente">Nome do Paciente</label>
+                    <input type="text" class="form-control" th:value="${anamnese.paciente}" required id="paciente" name="paciente" placeholder="Digite o nome do paciente">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" th:value="${anamnese?.email}" required id="email" name="email" placeholder="Digite o seu email">
+                    <label for="idade">Idade</label>
+                    <input type="number" class="form-control" th:value="${anamnese.idade}" required id="idade" name="idade" placeholder="Digite a idade do paciente">
                 </div>
                 <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" class="form-control" th:value="${anamnese?.senha}" required id="senha" name="senha" placeholder="Digite o seu senha">
-                </div>
-                <div class="form-group">
-                    <label for="observacao">Observação</label>
-                    <select class="custom-select" required name="observacao" th:inline="text">
-                        <option value="" >Selecione um tipo de usuário.</option>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Neurologista">Neurologista</option>
-                        <option value="Oftalmologista">Oftalmologista</option>
-                        <option value="Odontologista">Odontologista</option>
+                    <label for="sexo">Sexo</label>
+                    <label for="sexo">Selecione o sexo do peciente</label>
+                    <select class="custom-select" required name="sexo">
+                        <option value="">Selecione um tipo de usuário.</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
                       </select>
-                      <div class="invalid-feedback">Selecione ao menos um tipo de usuário.</div>
-                    <!-- <textarea class="form-control" id="observacao" name="observacao" placeholder="Digite o seu observação" th:inline="text">[[${administrador.observacao}]]</textarea> -->
+                      <div class="invalid-feedback">Selecione ao menos um sexo.</div>
+                </div>
+                <div class="form-group">
+                    <label for="codicao">O paciente possuí alguma condição crônica?</label>
+                    <select class="custom-select" required name="condicao">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cirurgia">O paciente fez alguma cirurgia anteriormente?</label>
+                    <select class="custom-select" required name="cirurgia">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="medicamentos">O paciente faz o uso de medicamentos regularmente?</label>
+                    <select class="custom-select" required name="medicamentos">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="detalhes">Descreva brevemente o motivo da consulta</label>
+                    <input type="text" class="form-control" th:value="${anamnese.detalhes}" required id="detalhes" name="detalhes" placeholder="Informe os detalhes">
+                </div>
+                <div class="form-group">
+                    <label for="dores">O paciente está sentindo dores?</label>
+                    <select class="custom-select" required name="dores">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="inchaco">O paciente está sentindo inchaço?</label>
+                    <select class="custom-select" required name="inchaco">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="febre">O paciente está com febre?</label>
+                    <select class="custom-select" required name="febre">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="atividade">O paciente pratica atividades regularmente?</label>
+                    <select class="custom-select" required name="atividade">
+                        <option value="">Selecione uma opção.</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                </div>
+                <div class="form-group">
+                    <label for="informacoes">Observações adicionais</label>
+                    <input type="text" class="form-control" th:value="${anamneses.informacoes}" id="informacoes" name="informacoes" placeholder="Informe as observações adicionais.">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
-
     </div>
     <!-- /.container-fluid -->
 <div th:replace="compartilhado/baixo"></div>

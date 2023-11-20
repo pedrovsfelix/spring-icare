@@ -1,4 +1,4 @@
-package com.web.tornese.SpringWeb.Servico.Autenticacao;
+package com.web.icare.SpringWeb.Servico.Autenticacao;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

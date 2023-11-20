@@ -1,6 +1,6 @@
 
 
-package com.web.tornese.SpringWeb;
+package com.web.icare.SpringWeb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,10 +1,10 @@
-package com.web.tornese.SpringWeb.controllers;
+package com.web.icare.SpringWeb.controllers;
 
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.web.tornese.SpringWeb.Servico.CookieService;
+import com.web.icare.SpringWeb.Servico.CookieService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

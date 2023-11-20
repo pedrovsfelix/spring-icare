@@ -1,6 +1,6 @@
-package com.web.tornese.SpringWeb.repositorio;
+package com.web.icare.SpringWeb.repositorio;
 
-import com.web.tornese.SpringWeb.models.Anamnese;
+import com.web.icare.SpringWeb.models.Anamnese;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

@@ -1,6 +1,6 @@
-package com.web.tornese.SpringWeb.repositorio;
+package com.web.icare.SpringWeb.repositorio;
 
-import com.web.tornese.SpringWeb.models.Administrador;
+import com.web.icare.SpringWeb.models.Administrador;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

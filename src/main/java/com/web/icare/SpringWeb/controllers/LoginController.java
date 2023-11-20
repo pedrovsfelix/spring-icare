@@ -1,12 +1,12 @@
-package com.web.tornese.SpringWeb.controllers;
+package com.web.icare.SpringWeb.controllers;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.tornese.SpringWeb.Servico.CookieService;
-import com.web.tornese.SpringWeb.models.Administrador;
-import com.web.tornese.SpringWeb.repositorio.AdministradoresRepo;
+import com.web.icare.SpringWeb.Servico.CookieService;
+import com.web.icare.SpringWeb.models.Administrador;
+import com.web.icare.SpringWeb.repositorio.AdministradoresRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

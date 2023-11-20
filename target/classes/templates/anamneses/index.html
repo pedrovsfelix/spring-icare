@@ -32,8 +32,8 @@
                                 <th>Febre</th>
                                 <th>Atividade Física Regular</th>
                                 <th>Informações Relevantes</th>
-                                <!-- <th>Nome Médico</th> -->
-                                <!-- <th>Especialidade</th> -->
+                                <!-- <th>Nome Médico</th>
+                                <th>Especialidade</th> -->
                                 <th>Alterar</th>
                                 <th>Excluir</th>
                             </tr>
@@ -53,8 +53,8 @@
                                 <td th:text="${anamnese.febre}"></td>
                                 <td th:text="${anamnese.atividade}"></td>
                                 <td th:text="${anamnese.informacoes}"></td>
-                                <!-- <td th:text="${anamnese.administrador.id}"></td> -->
-                                <!-- <td th:text="${anamnese.administrador.observacao}"></td> -->
+                                <!-- <td th:text="${anamnese.administrador != null ? anamnese.administrador.id : 'N/A'}"></td>
+                                <td th:text="${anamnese.administrador != null ? anamnese.administrador.observacao : 'N/A'}"></td> -->
                                 <td><a th:href="@{'/anamneses/' + ${anamnese.id}}" class="btn btn-warning">Alterar</td>
                                 <td><a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/anamneses/{id}(id=${anamnese.id})} + '/excluir\' } '" class="btn btn-danger">Excluir</td>
                             </tr>
