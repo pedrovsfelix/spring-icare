@@ -19,10 +19,11 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gd-primary bg-gradient-primary">
 
     <div class="container">
 
@@ -35,11 +36,11 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="bg-img-primary col-lg-6 d-none d-lg-block" id="bg-img-primary"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Seja muito bem vindo</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo(a)</h1>
                                     </div>
                                     <form class="user" action="/logar" method="POST">
                                         <div class="form-group">
@@ -60,7 +61,7 @@
 
                                         <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>
 
-                                        <button class="btn btn-primary btn-user btn-block">
+                                        <button class="btn-pm btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                     </form>
@@ -85,6 +86,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin-2.min.js"></script>
+    <script src="/js/home.js"></script>
 
 </body>
 

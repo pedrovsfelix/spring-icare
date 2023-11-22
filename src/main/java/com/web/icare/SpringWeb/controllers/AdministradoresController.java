@@ -43,7 +43,8 @@ public class AdministradoresController {
   }
 
   @GetMapping("/administradores/{id}")
-  public String busca(@PathVariable int id, Model model) {
+  public String busca(@PathVariable int id, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+    model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
     Optional<Administrador> admin = repo.findById(id);
     try {
       model.addAttribute("administrador", admin.get());
