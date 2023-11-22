@@ -211,6 +211,10 @@
                                     id="informacoes" name="informacoes"
                                     placeholder="Informe as observações adicionais.">
                             </div>
+                            <div class="form-group">
+                                <label for="medico">Reponsável pelo Atendimento</label>
+                                <input type="text" readonly class="form-control" id="medico" name="medico" th:value="${nome}">
+                            </div>
                             <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>

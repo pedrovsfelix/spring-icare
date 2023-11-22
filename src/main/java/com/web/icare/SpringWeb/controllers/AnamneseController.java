@@ -44,7 +44,8 @@ public class AnamneseController {
     }
 
     @GetMapping("/anamneses/{id}")
-    public String busca(@PathVariable int id, Model model) {
+    public String busca(@PathVariable int id, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+        model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
         Optional<Anamnese> admin = anarepo.findById(id);
         try {
             model.addAttribute("anamnese", admin.get());
@@ -56,7 +57,8 @@ public class AnamneseController {
     }
 
     @PostMapping("/anamneses/{id}/atualizar")
-    public String atualizar(@PathVariable int id, Anamnese anamnese) {
+    public String atualizar(@PathVariable int id, Anamnese anamnese, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+        model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
         if (!anarepo.existsById(id)) {
             return "redirect:/anamneses";
         }
