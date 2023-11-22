@@ -32,7 +32,8 @@ public class AnamneseController {
     }
 
     @GetMapping("/anamneses/novo")
-    public String novo() {
+    public String novo(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+        model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
         return "anamneses/novo";
     }
 

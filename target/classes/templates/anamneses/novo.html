@@ -124,7 +124,6 @@
                     <input type="number" class="form-control" required id="idade" name="idade" placeholder="Digite a idade do paciente">
                 </div>
                 <div class="form-group">
-                    <label for="sexo">Sexo</label>
                     <label for="sexo">Selecione o sexo do peciente</label>
                     <select class="custom-select" required name="sexo">
                         <option value="">Selecione um tipo de usuário.</option>
@@ -203,6 +202,10 @@
                 <div class="form-group">
                     <label for="informacoes">Observações adicionais</label>
                     <input type="text" class="form-control" id="informacoes" name="informacoes" placeholder="Informe as observações adicionais.">
+                </div>
+                <div class="form-group">
+                    <label for="medico">Reponsável pelo Atendimento</label>
+                    <input type="text" readonly class="form-control" id="medico" name="medico" th:value="${nome}">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>

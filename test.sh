@@ -1,1 +1,1 @@
-USER=root PASSWORD=root DATABASE_URL='localhost' ./mvnw test
+USER=root PASSWORD=admin DATABASE_URL='localhost' ./mvnw test

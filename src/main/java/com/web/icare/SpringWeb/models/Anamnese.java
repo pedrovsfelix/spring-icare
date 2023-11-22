@@ -51,9 +51,16 @@ public class Anamnese {
     @Column(name = "informacoes", length = 255)
     private String informacoes;
 
-    @ManyToOne
-    @JoinColumn(name = "administrador_id")
-    private Administrador administrador;
+    @Column(name = "medico", length = 255, nullable = false)
+    private String medico;
+
+    public String getMedico() {
+        return medico;
+    }
+
+    public void setMedico(String medico) {
+        this.medico = medico;
+    }
 
     public int getId() {
         return id;
@@ -158,4 +165,5 @@ public class Anamnese {
     public void setInformacoes(String informacoes) {
         this.informacoes = informacoes;
     }
+
 }
