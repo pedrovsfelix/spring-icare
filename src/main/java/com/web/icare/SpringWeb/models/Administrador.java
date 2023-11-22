@@ -26,6 +26,16 @@ public class Administrador {
   @Type(type = "text")
   private String observacao;
 
+  public Administrador() {
+  }
+
+  public Administrador(String nome, String email, String senha, String observacao) {
+    this.nome = nome;
+    this.email = email;
+    this.senha = senha;
+    this.observacao = observacao;
+  }
+
   public String getObservacao() {
     return observacao;
   }
