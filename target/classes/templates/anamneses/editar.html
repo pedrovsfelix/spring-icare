@@ -1,108 +1,219 @@
 <div th:replace="compartilhado/top"></div>
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Novo Paciente</h1>
-        <p class="mb-4">
-            Anamnese do paciênte
-        </p>
+<body id="page-top">
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4" style="padding: 30px;">
-            <form method="POST" th:action="@{'/anamneses/' + ${anamnese.id} + '/atualizar'}">
-                <div class="form-group">
-                    <label for="paciente">Nome do Paciente</label>
-                    <input type="text" class="form-control" th:value="${anamnese.paciente}" required id="paciente" name="paciente" placeholder="Digite o nome do paciente">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="form-group">
-                    <label for="idade">Idade</label>
-                    <input type="number" class="form-control" th:value="${anamnese.idade}" required id="idade" name="idade" placeholder="Digite a idade do paciente">
+                <div class="sidebar-brand-text mx-3">iCare</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard - <span th:text="${nome}"></span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/administradores">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Administradores</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/anamneses">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Anamneses</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span th:text="${nome}" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="/administradores">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Administradores
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/anamneses">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Anamneses
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Alterar informações do paciente <span
+                            th:text="${anamnese.paciente}"></span></h1>
+                    <p class="mb-4">
+                        Anamnese do paciênte
+                    </p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4" style="padding: 30px;">
+                        <form method="POST" th:action="@{'/anamneses/' + ${anamnese.id} + '/atualizar'}">
+                            <div class="form-group">
+                                <label for="paciente">Nome do Paciente</label>
+                                <input type="text" class="form-control" th:value="${anamnese.paciente}" required
+                                    id="paciente" name="paciente" placeholder="Digite o nome do paciente">
+                            </div>
+                            <div class="form-group">
+                                <label for="idade">Idade</label>
+                                <input type="number" class="form-control" th:value="${anamnese.idade}" required
+                                    id="idade" name="idade" placeholder="Digite a idade do paciente">
+                            </div>
+                            <div class="form-group">
+                                <label for="sexo">Sexo</label>
+                                <label for="sexo">Selecione o sexo do peciente</label>
+                                <select class="custom-select" required name="sexo">
+                                    <option th:text="${anamnese.sexo}"></option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos um sexo.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="condicao">O paciente possuí alguma condição crônica?</label>
+                                <select class="custom-select" required name="condicao">
+                                    <option th:text="${anamnese.condicao}"></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cirurgia">O paciente fez alguma cirurgia anteriormente?</label>
+                                <select class="custom-select" required name="cirurgia">
+                                    <option th:text="${anamnese.cirurgia}">Selecione uma opção.</option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="medicamentos">O paciente faz o uso de medicamentos regularmente?</label>
+                                <select class="custom-select" required name="medicamentos">
+                                    <option th:text="${anamnese.medicamentos}"></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="detalhes">Descreva brevemente o motivo da consulta</label>
+                                <input type="text" class="form-control" th:value="${anamnese.detalhes}" required
+                                    id="detalhes" name="detalhes" placeholder="Informe os detalhes">
+                            </div>
+                            <div class="form-group">
+                                <label for="dores">O paciente está sentindo dores?</label>
+                                <select class="custom-select" required name="dores">
+                                    <option th:text="${anamnese.dores}">Selecione uma opção.</option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inchaco">O paciente está sentindo inchaço?</label>
+                                <select class="custom-select" required name="inchaco">
+                                    <option th:text="${anamnese.inchaco}"></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="febre">O paciente está com febre?</label>
+                                <select class="custom-select" required name="febre">
+                                    <option th:text="${anamnese.febre}"></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="atividade">O paciente pratica atividades regularmente?</label>
+                                <select class="custom-select" required name="atividade">
+                                    <option th:text="${anamnese.atividade}"></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                                <div class="invalid-feedback">Selecione ao menos uma opção.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="informacoes">Observações adicionais</label>
+                                <input type="text" class="form-control" th:value="${anamnese.informacoes}"
+                                    id="informacoes" name="informacoes"
+                                    placeholder="Informe as observações adicionais.">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="sexo">Sexo</label>
-                    <label for="sexo">Selecione o sexo do peciente</label>
-                    <select class="custom-select" required name="sexo">
-                        <option value="">Selecione um tipo de usuário.</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos um sexo.</div>
-                </div>
-                <div class="form-group">
-                    <label for="codicao">O paciente possuí alguma condição crônica?</label>
-                    <select class="custom-select" required name="condicao">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="cirurgia">O paciente fez alguma cirurgia anteriormente?</label>
-                    <select class="custom-select" required name="cirurgia">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="medicamentos">O paciente faz o uso de medicamentos regularmente?</label>
-                    <select class="custom-select" required name="medicamentos">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="detalhes">Descreva brevemente o motivo da consulta</label>
-                    <input type="text" class="form-control" th:value="${anamnese.detalhes}" required id="detalhes" name="detalhes" placeholder="Informe os detalhes">
-                </div>
-                <div class="form-group">
-                    <label for="dores">O paciente está sentindo dores?</label>
-                    <select class="custom-select" required name="dores">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="inchaco">O paciente está sentindo inchaço?</label>
-                    <select class="custom-select" required name="inchaco">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="febre">O paciente está com febre?</label>
-                    <select class="custom-select" required name="febre">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="atividade">O paciente pratica atividades regularmente?</label>
-                    <select class="custom-select" required name="atividade">
-                        <option value="">Selecione uma opção.</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
-                      </select>
-                      <div class="invalid-feedback">Selecione ao menos uma opção.</div>
-                </div>
-                <div class="form-group">
-                    <label for="informacoes">Observações adicionais</label>
-                    <input type="text" class="form-control" th:value="${anamneses.informacoes}" id="informacoes" name="informacoes" placeholder="Informe as observações adicionais.">
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-    </div>
-    <!-- /.container-fluid -->
-<div th:replace="compartilhado/baixo"></div>
+                <!-- /.container-fluid -->
+                <div th:replace="compartilhado/baixo"></div>

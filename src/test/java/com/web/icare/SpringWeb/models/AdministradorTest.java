@@ -1,8 +1,8 @@
-package com.web.tornese.SpringWeb.models;
+package com.web.icare.SpringWeb.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.web.tornese.SpringWeb.repositorio.AdministradoresRepo;
+import com.web.icare.SpringWeb.repositorio.AdministradoresRepo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,9 +54,9 @@ class AdministradorTest {
 
     Administrador adm = new Administrador();
     adm.setNome("Pedro");
-    adm.setEmail("pedro@email.com");
+    adm.setEmail("pedro@email.com.br");
     adm.setSenha("123456");
-    adm.setObservacao("Teste");
+    adm.setObservacao("Administrador");
     repo.save(adm);
 
     return adm;

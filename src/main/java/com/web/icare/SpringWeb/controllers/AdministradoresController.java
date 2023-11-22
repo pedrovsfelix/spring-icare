@@ -1,7 +1,10 @@
 package com.web.icare.SpringWeb.controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.web.icare.SpringWeb.Servico.CookieService;
 import com.web.icare.SpringWeb.models.Administrador;
 import com.web.icare.SpringWeb.repositorio.AdministradoresRepo;
 
@@ -20,7 +24,8 @@ public class AdministradoresController {
   private AdministradoresRepo repo;
 
   @GetMapping("/administradores")
-  public String index(Model model) {
+  public String index(Model model, HttpServletRequest request) throws UnsupportedEncodingException{
+    model.addAttribute("nome", CookieService.getCookie(request, "nomeUsuario"));
     List<Administrador> administradores = (List<Administrador>) repo.findAll();
     model.addAttribute("administradores", administradores);
     return "administradores/index";
@@ -51,7 +56,6 @@ public class AdministradoresController {
 
   @PostMapping("/administradores/{id}/atualizar")
   public String atualizar(@PathVariable int id, Administrador administrador) {
-    // if(!repo.exist(id)){
     if (!repo.existsById(id)) {
       return "redirect:/administradores";
     }
